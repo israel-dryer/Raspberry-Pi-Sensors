@@ -1,4 +1,3 @@
- 
 import os
 import glob
 import time
@@ -18,7 +17,7 @@ class DS18B20:
 
     def find_sensors(self):
         self.sensor_path = glob.glob(self.base_dir)
-        self.sensor_name = [path.split('\\')[-1] for path in self.sensor_path]
+        self.sensor_name = [path.split('/')[-1] for path in self.sensor_path]
 
     def strip_string(self, temp_str):
         i = temp_str.index('t=')
@@ -44,7 +43,7 @@ class DS18B20:
     def print_temps(self):
         print('-'*90)
         for t, n, c, f in self.log:
-            print(f'Sensor: {n}    C={c:,.3f}    F={f:,.3f}    DateTime: {t}')
+            print(f'Sensor: {n}  C={c:,.3f}  F={f:,.3f}  DateTime: {t}')
 
     def clear_log(self):
         s.log.clear()
