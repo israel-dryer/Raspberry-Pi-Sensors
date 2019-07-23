@@ -8,13 +8,9 @@ import datetime
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
  
-base_dir = r'/sys/bus/w1/devices/28*'
-device_path = glob.glob(base_dir) #get list of file paths of sensors
-rom = [d.split('/')[-1] for d in device_path] #get list of roms
-
 class DS18B20:
     def __init__(self):
-        self.base_dir = r'C:\Users\us43060\Desktop\GitHub\Raspberry-Pi-Sensors\sys\bus\w1\devices\28*'
+        self.base_dir = r'/sys/bus/w1/devices/28*'
         self.sensor_path = []        
         self.sensor_name = []
         self.temps = []
